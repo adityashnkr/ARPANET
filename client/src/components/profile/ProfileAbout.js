@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 export const ProfileAbout = () => {
 	const { bio, skills } = useSelector((state) => state.profile.profile);
 	const { name } = useSelector((state) => state.profile.profile.user);
-	console.log(name, bio, skills);
 	return (
 		<div className='profile-about bg-primary p-2'>
 			{bio && (
@@ -18,7 +17,7 @@ export const ProfileAbout = () => {
 			<div className='skills'>
 				{skills.map((skill, index) => (
 					<div key={index} className='p-1'>
-						<i class='fa-solid fa-circle-check' />
+						<i className='fa-solid fa-circle-check' />
 						&nbsp;
 						{skill}
 						&nbsp;
