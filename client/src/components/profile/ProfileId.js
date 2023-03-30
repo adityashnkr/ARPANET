@@ -7,6 +7,7 @@ import { ProfileTop } from './ProfileTop';
 import { ProfileAbout } from './ProfileAbout';
 import { ProfileExperience } from './ProfileExperience';
 import { ProfileEducation } from './ProfileEducation';
+import { ProfileGithub } from './ProfileGithub';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -58,6 +59,10 @@ export const ProfileId = () => {
 						)}
 					</div>
 					<br />
+					{profile.githubusername && (
+						<ProfileGithub username={profile.githubusername} />
+					)}
+					<br />
 					<br />
 					<Link to='/profiles' className='btn btn-light'>
 						Back To Profiles
@@ -71,6 +76,7 @@ export const ProfileId = () => {
 						)}
 				</div>
 			)}
+			<br />
 		</>
 	);
 };
