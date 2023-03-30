@@ -160,6 +160,7 @@ justify-content: space-between;
 align-items: center;
 opacity: 1;
 position: top;
+background-color: transparent;
 }
 .navbar ul {
   display: flex;
