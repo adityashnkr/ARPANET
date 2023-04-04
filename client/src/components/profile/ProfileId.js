@@ -16,10 +16,11 @@ export const ProfileId = () => {
 	let { id } = useParams();
 	useEffect(() => {
 		dispatch(getProfileById(id));
-	}, [getProfileById]);
+	}, [dispatch, id]);
 	const loading = useSelector((state) => state.profile.loading);
 	const auth = useSelector((state) => state.auth);
 	const profile = useSelector((state) => state.profile.profile);
+	console.log(loading, profile);
 	return (
 		<>
 			{profile === null || loading ? (

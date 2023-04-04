@@ -11,10 +11,13 @@ export const Navbar = () => {
 	const authLinks = (
 		<ul>
 			<li>
-				<a href='/dashboard'>Dashboard</a>
+				<Link to='/dashboard'>Dashboard</Link>
 			</li>
 			<li>
-				<a href='/profiles'>Developers</a>
+				<Link to='/posts'>Posts</Link>
+			</li>
+			<li>
+				<Link to='/profiles'>Developers</Link>
 			</li>
 			<li className='log'>
 				<a onClick={() => dispatch(logout())} href='/'>
