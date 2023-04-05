@@ -6,6 +6,8 @@ import { useParams } from 'react-router-dom';
 import { getPost } from '../../actions/post';
 import { PostItem } from '../posts/PostItem';
 import { Link } from 'react-router-dom';
+import { CommentForm } from './CommentForm';
+import { CommentItem } from './CommentItem';
 export const Post = () => {
 	const dispatch = useDispatch();
 	let { id } = useParams();
@@ -20,18 +22,25 @@ export const Post = () => {
 	) : (
 		<section className='container'>
 			<PostItem post={post} showActions={false} />
-			{/* <CommentForm postId={post._id} /> */}
+			<CommentForm postId={post._id} />
 			<div className='comments'>
 				{post.comments.map((comment) => (
-					<h1>HI</h1>
-					// <CommentItem key={comment._id} comment={comment} postId={post._id} />
+					<Fragment key={comment._id}>
+						<CommentItem comment={comment} postId={post._id} />
+						<br />
+					</Fragment>
 				))}
 			</div>
+			<br />
 			<Link to='/posts' className='btn'>
 				Back To Posts
 			</Link>
+			<br />
+			<br />
 		</section>
 	);
 };
 
-Post.propTypes = {};
+Post.propTypes = {
+	post: PropTypes.object,
+};

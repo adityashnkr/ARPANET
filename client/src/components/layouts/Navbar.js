@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import logo from '../../img/logo.ico';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';

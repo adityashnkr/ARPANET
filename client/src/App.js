@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Alert } from './components/layouts/Alert';
 import { PrivateRoute } from './components/routing/PrivateRoute';
-import { Provider, useSelector } from 'react-redux';
+import { Provider } from 'react-redux';
 import store from './store';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
