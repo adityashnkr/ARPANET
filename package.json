@@ -8,7 +8,7 @@
     "start": "node server",
     "server": "nodemon server --ignore client",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"yarn run server\" \"yarn run client\""
+    "dev": "concurrently \"yarn run server\" \"yarn run client\"",
   },
   "author": "Aditya Shankar",
   "license": "MIT",
