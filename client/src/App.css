@@ -324,6 +324,9 @@ ul {
 .form input[type=date]{
     width: 100%;
   }
+  .form select{
+    width: 100%;
+  }
 }
 .landing {
   position: relative;

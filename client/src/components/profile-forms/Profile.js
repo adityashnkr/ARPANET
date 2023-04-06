@@ -161,7 +161,9 @@ export const Profile = () => {
 					</small>
 				</div>
 				<div className='form-group'>
-					<textarea
+					<input
+						style={{ height: '100px' }}
+						type='text'
 						placeholder='A short bio of yourself'
 						name='bio'
 						value={bio}
@@ -177,9 +179,7 @@ export const Profile = () => {
 						className='btn btn-primary'>
 						Add Social Network Links
 					</button>
-					<span>Optional</span>
 				</div>
-				<br />
 				{displaySocialInputs && (
 					<>
 						<div className='form-group social-input'>
