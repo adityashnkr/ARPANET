@@ -23,7 +23,7 @@ export const Profiles = () => {
 							<i className='fab fa-connectdevelop'></i> Browse and connect with
 							Developers around the world!
 						</p>
-						<div className='profiles'>
+						<div>
 							{profiles.length > 0 ? (
 								profiles.map((profile) => (
 									<ProfileItems key={profile._id} profile={profile} />

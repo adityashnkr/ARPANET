@@ -30,9 +30,7 @@ export const PostForm = () => {
 					required
 				/>
 				<br />
-				<button type='submit' className='btn btn-primary my-1' value='Submit'>
-					Submit
-				</button>
+				<button className='btn btn-primary'>Submit</button>
 			</form>
 		</div>
 	);

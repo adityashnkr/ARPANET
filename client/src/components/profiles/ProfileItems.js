@@ -15,10 +15,10 @@ export const ProfileItems = ({
 			<img src={avatar} alt='' className='round-img' />
 			<div>
 				<h2>{name}</h2>
-				<p>
+				<p className='p-1'>
 					{status} {company && <span> at {company}</span>}
 				</p>
-				<p>{location && <span>{location}</span>}</p>
+				<p className='p-1'>{location && <span>{location}</span>}</p>
 				<br />
 				<a href={`/profile/${_id}`} className='btn btn-profile'>
 					View Profile

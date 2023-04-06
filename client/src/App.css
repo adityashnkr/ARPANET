@@ -245,7 +245,7 @@ ul {
 		height:100px;
 	}
   .profile {
-    grid-template-columns: 1fr;
+    grid-template-columns: 2fr !important;
     text-align: center;
   }
 
@@ -317,9 +317,6 @@ ul {
   .btn.btn-profileId {
     width: 150px;;
     margin-bottom: 1.5rem;
-  }
-  .form input[type=text]{
-    width: 100%;
   }
 }
 .landing {
