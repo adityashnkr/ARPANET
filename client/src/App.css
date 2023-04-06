@@ -318,6 +318,12 @@ ul {
     width: 150px;;
     margin-bottom: 1.5rem;
   }
+  .form input[type=text],
+.form input[type=email],
+.form input[type=password],
+.form input[type=date]{
+    width: 100%;
+  }
 }
 .landing {
   position: relative;
