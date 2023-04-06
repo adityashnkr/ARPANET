@@ -26,7 +26,6 @@ export const Posts = () => {
 					</Fragment>
 				))}
 			</div>
-			<br />
 		</section>
 	);
 };

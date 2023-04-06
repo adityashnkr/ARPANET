@@ -30,7 +30,7 @@ export const PostItem = ({
 							<button
 								onClick={() => dispatch(addLike(_id))}
 								type='button'
-								className='btn btn-light'>
+								className='btn my-1'>
 								<i
 									className='fa-solid fa-thumbs-up'
 									style={{ color: '#ffffff' }}></i>
@@ -41,13 +41,13 @@ export const PostItem = ({
 							<button
 								onClick={() => dispatch(removeLike(_id))}
 								type='button'
-								className='btn btn-light'>
+								className='btn'>
 								<i
 									className='fas fa-thumbs-down'
 									style={{ color: '#ffffff' }}
 								/>
 							</button>
-							<Link to={`/posts/${_id}`} className='btn btn-primary'>
+							<Link to={`/posts/${_id}`} className='btn btn-primary p-1'>
 								Discussion{' '}
 								{comments.length > 0 && (
 									<span className='comment-count'>{comments.length}</span>

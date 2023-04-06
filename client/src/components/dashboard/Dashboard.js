@@ -33,6 +33,7 @@ export const Dashboard = () => {
 						onClick={() => store.dispatch(deleteAccount())}>
 						Delete my account
 					</button>
+					<br />
 				</>
 			) : (
 				<>

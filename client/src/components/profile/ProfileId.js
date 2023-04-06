@@ -26,7 +26,7 @@ export const ProfileId = () => {
 			{profile === null || loading ? (
 				<Spinner />
 			) : (
-				<div className='container'>
+				<div className='profile-grid my-1'>
 					<ProfileTop />
 					<br />
 					<ProfileAbout />
@@ -65,13 +65,14 @@ export const ProfileId = () => {
 					)}
 					<br />
 					<br />
-					<Link to='/profiles' className='btn btn-light'>
-						Back To Profiles
+					<Link to='/profiles' className='btn btn-profileId'>
+						Back to profile
 					</Link>
+					<br />
 					{auth.isAuthenticated &&
 						auth.loading === false &&
 						auth.user._id === profile.user._id && (
-							<Link to='/edit-profile' className='btn btn-dark'>
+							<Link to='/edit-profile' className='btn btn-profileId'>
 								Edit Profile
 							</Link>
 						)}

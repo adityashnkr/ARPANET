@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 import formatDate from '../../utils/formatDate';
 export const ProfileExperience = ({
 	experience: { company, title, location, current, to, from, description },

@@ -18,7 +18,6 @@ export const PostForm = () => {
 					dispatch(addPost({ text }));
 					setText('');
 				}}>
-				<br />
 				<input
 					style={{ height: '100px' }}
 					type='text'
@@ -31,7 +30,9 @@ export const PostForm = () => {
 					required
 				/>
 				<br />
-				<input type='submit' className='btn btn-dark my-1' value='Submit' />
+				<button type='submit' className='btn btn-primary my-1' value='Submit'>
+					Submit
+				</button>
 			</form>
 		</div>
 	);

@@ -9,13 +9,12 @@ export const ProfileGithub = ({ username }) => {
 	const repos = useSelector((state) => state.profile.repos);
 	return (
 		<div className='profile-github'>
-			<h2 className='text-primary my-1'>Github Repos</h2>
-			<br />
+			<h2 className='text-primary p-2'>Github Repos</h2>
 			{repos.length !== 0 ? (
 				repos.map((repo) => (
 					<>
 						<br />
-						<div key={repo.id} className='repo p-1 my-1'>
+						<div key={repo.id} className='repo p-2'>
 							<div>
 								<h4>
 									<a
@@ -44,7 +43,7 @@ export const ProfileGithub = ({ username }) => {
 					</>
 				))
 			) : (
-				<h4>No Repos</h4>
+				<h4 className='m-2'>No Repos</h4>
 			)}
 		</div>
 	);
