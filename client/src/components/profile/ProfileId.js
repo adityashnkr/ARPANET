@@ -20,7 +20,6 @@ export const ProfileId = () => {
 	const loading = useSelector((state) => state.profile.loading);
 	const auth = useSelector((state) => state.auth);
 	const profile = useSelector((state) => state.profile.profile);
-	console.log(loading, profile);
 	return (
 		<>
 			{profile === null || loading ? (
@@ -65,13 +64,19 @@ export const ProfileId = () => {
 					)}
 				</div>
 			)}
-			<Link to='/profiles' className='btn btn-primary my-1'>
+			<Link
+				to='/profiles'
+				style={{ margin: '1rem' }}
+				className='btn btn-primary my-1'>
 				Back to profile
 			</Link>
 			{auth.isAuthenticated &&
 				auth.loading === false &&
 				auth.user._id === profile.user._id && (
-					<Link to='/edit-profile' className='btn btn-primary my-1'>
+					<Link
+						to='/edit-profile'
+						style={{ margin: '1rem' }}
+						className='btn btn-primary my-1'>
 						Edit Profile
 					</Link>
 				)}
