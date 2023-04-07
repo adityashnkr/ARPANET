@@ -63,21 +63,18 @@ export const ProfileId = () => {
 					{profile.githubusername && (
 						<ProfileGithub username={profile.githubusername} />
 					)}
-					<br />
-					<br />
-					<Link to='/profiles' className='btn btn-profileId'>
-						Back to profile
-					</Link>
-					<br />
-					{auth.isAuthenticated &&
-						auth.loading === false &&
-						auth.user._id === profile.user._id && (
-							<Link to='/edit-profile' className='btn btn-profileId'>
-								Edit Profile
-							</Link>
-						)}
 				</div>
 			)}
+			<Link to='/profiles' className='btn btn-primary my-1'>
+				Back to profile
+			</Link>
+			{auth.isAuthenticated &&
+				auth.loading === false &&
+				auth.user._id === profile.user._id && (
+					<Link to='/edit-profile' className='btn btn-primary my-1'>
+						Edit Profile
+					</Link>
+				)}
 			<br />
 		</>
 	);
