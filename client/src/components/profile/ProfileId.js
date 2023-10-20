@@ -20,6 +20,7 @@ export const ProfileId = () => {
 	const loading = useSelector((state) => state.profile.loading);
 	const auth = useSelector((state) => state.auth);
 	const Profile = useSelector((state) => state.profile.profile);
+	console.log('Profile:', profile);
 	return (
 		<>
 			{Profile === null ? (
