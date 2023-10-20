@@ -69,7 +69,7 @@ export const ProfileId = () => {
 				className='btn btn-primary my-1'>
 				Back to Profile
 			</Link>
-			{auth.isAuthenticated &&
+			{/* {auth.isAuthenticated &&
 				auth.loading === false &&
 				auth.user._id === Profile.user._id && (
 					<Link
@@ -78,7 +78,7 @@ export const ProfileId = () => {
 						className='btn btn-primary my-1'>
 						Edit Profile
 					</Link>
-				)}
+				)} */}
 			<br />
 		</>
 	);
