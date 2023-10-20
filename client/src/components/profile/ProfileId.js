@@ -8,8 +8,7 @@ import { ProfileAbout } from './ProfileAbout';
 import { ProfileExperience } from './ProfileExperience';
 import { ProfileEducation } from './ProfileEducation';
 import { ProfileGithub } from './ProfileGithub';
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 export const ProfileId = () => {
   const dispatch = useDispatch();
@@ -19,7 +18,9 @@ export const ProfileId = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // Fetch profile data
         await dispatch(getProfileById(id));
+        // Set loadingProfile to false after fetching
         setLoadingProfile(false);
       } catch (error) {
         // Handle error if needed
@@ -30,68 +31,66 @@ export const ProfileId = () => {
     fetchData();
   }, [dispatch, id]);
 
+  // Use useSelector to get the profile and loading state from the Redux store
+  const profile = useSelector((state) => state.profile.profile);
   const loading = useSelector((state) => state.profile.loading);
   const auth = useSelector((state) => state.auth);
-  const profile = useSelector((state) => state.profile.profile);
 
+  // If the user is authenticated and profile is still loading, show Spinner
+  if (auth.isAuthenticated && loading) {
+    return <Spinner />;
+  }
+
+  // If profile is still loading, show Spinner
+  if (loadingProfile) {
+    return <Spinner />;
+  }
+
+  // If profile is null, show a message
+  if (!profile) {
+    return <div>No profile found.</div>;
+  }
+
+  // Render the profile details
   return (
     <>
-      {loadingProfile || loading ? (
-        <Spinner />
-      ) : (
-        <div className='profile-grid my-1'>
-          <ProfileTop />
-          <br />
-          <ProfileAbout />
-          <br />
-          <div className='profile-exp p-2'>
-            <h2 className='text-primary'>Experience</h2>
-            {profile.experience.length > 0 ? (
-              <>
-                {profile.experience.map((experience) => (
-                  <ProfileExperience
-                    key={experience._id}
-                    experience={experience}
-                  />
-                ))}
-              </>
-            ) : (
-              <h4>No experience credentials</h4>
-            )}
-          </div>
-          <br />
-          <div className='profile-edu p-2'>
-            <h2 className='text-primary'>Education</h2>
-            {profile.education.length > 0 ? (
-              <>
-                {profile.education.map((education) => (
-                  <ProfileEducation key={education._id} education={education} />
-                ))}
-              </>
-            ) : (
-              <h4>No education credentials</h4>
-            )}
-          </div>
-          <br />
-          {profile.githubusername && (
-            <ProfileGithub username={profile.githubusername} />
+      <div className='profile-grid my-1'>
+        <ProfileTop />
+        <br />
+        <ProfileAbout />
+        <br />
+        <div className='profile-exp p-2'>
+          <h2 className='text-primary'>Experience</h2>
+          {profile.experience.length > 0 ? (
+            <>
+              {profile.experience.map((experience) => (
+                <ProfileExperience key={experience._id} experience={experience} />
+              ))}
+            </>
+          ) : (
+            <h4>No experience credentials</h4>
           )}
         </div>
-      )}
+        <br />
+        <div className='profile-edu p-2'>
+          <h2 className='text-primary'>Education</h2>
+          {profile.education.length > 0 ? (
+            <>
+              {profile.education.map((education) => (
+                <ProfileEducation key={education._id} education={education} />
+              ))}
+            </>
+          ) : (
+            <h4>No education credentials</h4>
+          )}
+        </div>
+        <br />
+        {profile.githubusername && <ProfileGithub username={profile.githubusername} />}
+      </div>
       <Link to='/profiles' style={{ margin: '1rem' }} className='btn btn-primary my-1'>
         Back to profile
       </Link>
-      {auth.isAuthenticated &&
-        auth.loading === false &&
-        auth.user._id === profile.user._id && (
-          <Link
-            to='/edit-profile'
-            style={{ margin: '1rem' }}
-            className='btn btn-primary my-1'>
-            Edit Profile
-          </Link>
-        )}
-      <br />
+      {/* ... rest of your code */}
     </>
   );
 };
