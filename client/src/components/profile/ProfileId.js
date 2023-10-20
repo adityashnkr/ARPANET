@@ -20,12 +20,11 @@ export const ProfileId = () => {
 	const loading = useSelector((state) => state.profile.loading);
 	const auth = useSelector((state) => state.auth);
 	const Profile = useSelector((state) => state.profile.profile);
-	console.log('Profile:', profile);
+	if (Profile === null) {
+		return <Spinner />;
+	  }
 	return (
 		<>
-			{Profile === null ? (
-				<Spinner />
-			) : (
 				<div className='Profile-grid my-1'>
 					<ProfileTop />
 					<br />
@@ -64,7 +63,6 @@ export const ProfileId = () => {
 						<ProfileGithub username={Profile.githubusername} />
 					)}
 				</div>
-			)}
 			<Link
 				to='/profiles'
 				style={{ margin: '1rem' }}
