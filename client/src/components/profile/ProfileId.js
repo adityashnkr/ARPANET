@@ -8,30 +8,35 @@ import { ProfileAbout } from './ProfileAbout';
 import { ProfileExperience } from './ProfileExperience';
 import { ProfileEducation } from './ProfileEducation';
 import { ProfileGithub } from './ProfileGithub';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const ProfileId = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const [loadingDelay, setLoadingDelay] = useState(true);
+  const [loadingProfile, setLoadingProfile] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      dispatch(getProfileById(id));
-      setLoadingDelay(false);
-      await new Promise(resolve => setTimeout(resolve, 10000));
+      try {
+        await dispatch(getProfileById(id));
+        setLoadingProfile(false);
+      } catch (error) {
+        // Handle error if needed
+        setLoadingProfile(false);
+      }
     };
 
     fetchData();
   }, [dispatch, id]);
 
   const loading = useSelector((state) => state.profile.loading);
-  // const auth = useSelector((state) => state.auth);
+  const auth = useSelector((state) => state.auth);
   const profile = useSelector((state) => state.profile.profile);
 
   return (
     <>
-      {loadingDelay || loading ? (
+      {loadingProfile || loading ? (
         <Spinner />
       ) : (
         <div className='profile-grid my-1'>
@@ -60,10 +65,7 @@ export const ProfileId = () => {
             {profile.education.length > 0 ? (
               <>
                 {profile.education.map((education) => (
-                  <ProfileEducation
-                    key={education._id}
-                    education={education}
-                  />
+                  <ProfileEducation key={education._id} education={education} />
                 ))}
               </>
             ) : (
@@ -76,13 +78,10 @@ export const ProfileId = () => {
           )}
         </div>
       )}
-      <Link
-        to='/profiles'
-        style={{ margin: '1rem' }}
-        className='btn btn-primary my-1'>
+      <Link to='/profiles' style={{ margin: '1rem' }} className='btn btn-primary my-1'>
         Back to profile
       </Link>
-      {/* {auth.isAuthenticated &&
+      {auth.isAuthenticated &&
         auth.loading === false &&
         auth.user._id === profile.user._id && (
           <Link
@@ -91,7 +90,7 @@ export const ProfileId = () => {
             className='btn btn-primary my-1'>
             Edit Profile
           </Link>
-        )} */}
+        )}
       <br />
     </>
   );
@@ -103,3 +102,5 @@ ProfileId.propTypes = {
   getProfileById: PropTypes.func,
   auth: PropTypes.object,
 };
+
+export default ProfileId;
