@@ -12,7 +12,6 @@ export const ProfileItems = ({
 }) => {
 	return (
 		<div className='profile'>
-			console.log(profile)
 			<img src={avatar} alt='' className='round-img' />
 			<div>
 				<h2>{name}</h2>
