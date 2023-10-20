@@ -19,9 +19,6 @@ import { Post } from './components/post/Post';
 import { AddEducation } from './components/profile-forms/AddEducation';
 import { Profiles } from './components/profiles/Profiles';
 import { ProfileId } from './components/profile/ProfileId';
-if (localStorage.token) {
-	setAuthToken(localStorage.token);
-}
 
 const App = () => {
 	useEffect(() => {
