@@ -1,4 +1,4 @@
-// import './App.css';
+import './App.css';
 import { Navbar } from './components/layouts/Navbar';
 import { Landing } from './components/layouts/Landing';
 import { Register } from './components/auth/Register';
@@ -31,11 +31,11 @@ const App = () => {
 					<Navbar />
 					<Alert />
 					<Routes>
-						{/* <Route exact path='/profiles' element={<Profiles />} /> */}
-						{/* <Route exact path='/' element={<Landing />} /> */}
-						{/* <Route exact path='/register' element={<Register />} /> */}
-						{/* <Route exact path='/login' element={<Login />} /> */}
-						{/* <Route exact path='/profile/:id' element={<ProfileId />} /> */}
+						<Route exact path='/profiles' element={<Profiles />} />
+						<Route exact path='/' element={<Landing />} />
+						<Route exact path='/register' element={<Register />} />
+						<Route exact path='/login' element={<Login />} />
+						<Route exact path='/profile/:id' element={<ProfileId />} />
 						<Route exact path='/' element={<PrivateRoute />}>
 							<Route exact path='/dashboard' element={<Dashboard />} />
 						</Route>
