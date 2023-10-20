@@ -19,7 +19,7 @@ export const ProfileId = () => {
 	}, [dispatch, id]);
 	const loading = useSelector((state) => state.profile.loading);
 	const auth = useSelector((state) => state.auth);
-	const profile = useSelector((state) => state.profile.profile);
+	const Profile = useSelector((state) => state.profile.profile);
 	return (
 		<>
 			{Profile === null || loading ? (
