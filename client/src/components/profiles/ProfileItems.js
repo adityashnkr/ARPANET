@@ -20,9 +20,9 @@ export const ProfileItems = ({
 				</p>
 				<p className='p-1'>{location && <span>{location}</span>}</p>
 				<br />
-				<a href={`/profile/${_id}`} className='btn btn-profile'>
+				{/* <a href={`/profile/${_id}`} className='btn btn-profile'>
 					View Profile
-				</a>
+				</a> */}
 			</div>
 			<ul>
 				{skills.slice(0, 4).map((skill, index) => (
