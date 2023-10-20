@@ -17,9 +17,9 @@ export const ProfileId = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      await new Promise(resolve => setTimeout(resolve, 10000)); // 10-second delay
       dispatch(getProfileById(id));
-      setLoadingDelay(false); // Set loadingDelay to false after the delay
+      setLoadingDelay(false);
+      await new Promise(resolve => setTimeout(resolve, 10000));
     };
 
     fetchData();
