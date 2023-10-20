@@ -1,4 +1,4 @@
-import './App.css';
+// import './App.css';
 import { Navbar } from './components/layouts/Navbar';
 import { Landing } from './components/layouts/Landing';
 import { Register } from './components/auth/Register';
