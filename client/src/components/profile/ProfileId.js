@@ -20,8 +20,10 @@ export const ProfileId = () => {
 	const loading = useSelector((state) => state.profile.loading);
 	const auth = useSelector((state) => state.auth);
 	const Profile = useSelector((state) => state.profile.profile);
+	if (loading || Profile === null) {
+		return <Spinner />;
+	  }
 	return (
-
 		<>
 				<div className='Profile-grid my-1'>
 					<ProfileTop />
@@ -29,7 +31,7 @@ export const ProfileId = () => {
 					<ProfileAbout />
 					<br />
 					<div className='Profile-exp p-2'>
-						<h2 className='text-primary'>Experience</h2>
+						<h2 className='text-primary'>Experiencz</h2>
 						{Profile.experience.length > 0 ? (
 							<>
 								{Profile.experience.map((experience) => (
