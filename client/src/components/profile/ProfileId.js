@@ -26,7 +26,7 @@ export const ProfileId = () => {
   }, [dispatch, id]);
 
   const loading = useSelector((state) => state.profile.loading);
-  const auth = useSelector((state) => state.auth);
+  // const auth = useSelector((state) => state.auth);
   const profile = useSelector((state) => state.profile.profile);
 
   return (
@@ -82,7 +82,7 @@ export const ProfileId = () => {
         className='btn btn-primary my-1'>
         Back to profile
       </Link>
-      {auth.isAuthenticated &&
+      {/* {auth.isAuthenticated &&
         auth.loading === false &&
         auth.user._id === profile.user._id && (
           <Link
@@ -91,7 +91,7 @@ export const ProfileId = () => {
             className='btn btn-primary my-1'>
             Edit Profile
           </Link>
-        )}
+        )} */}
       <br />
     </>
   );

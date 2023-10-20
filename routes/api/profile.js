@@ -255,6 +255,7 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
 
 router.get('/github/:username', async (req, res) => {
 	try {
+		console.log(process.env.githubSecret)
 		const option = {
 			uri: `https://api.github.com/users/${
 				req.params.username
@@ -264,6 +265,7 @@ router.get('/github/:username', async (req, res) => {
 			method: 'GET',
 			headers: { 'user-agent': 'node.js' },
 		};
+		console.log(option)
 		request(option, (error, response, body) => {
 			if (error) console.error(error);
 			if (response.statusCode !== 200) {
