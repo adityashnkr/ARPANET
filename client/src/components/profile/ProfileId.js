@@ -22,7 +22,7 @@ export const ProfileId = () => {
 	const Profile = useSelector((state) => state.profile.profile);
 	return (
 		<>
-			{Profile === null || loading ? (
+			{Profile === null ? (
 				<Spinner />
 			) : (
 				<div className='Profile-grid my-1'>
