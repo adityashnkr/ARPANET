@@ -35,7 +35,7 @@ const App = () => {
 						<Route exact path='/' element={<Landing />} />
 						<Route exact path='/register' element={<Register />} />
 						<Route exact path='/login' element={<Login />} />
-						<Route exact path='/profile/:id' element={<ProfileId />} />
+						{/* <Route exact path='/profile/:id' element={<ProfileId />} /> */}
 						<Route exact path='/' element={<PrivateRoute />}>
 							<Route exact path='/dashboard' element={<Dashboard />} />
 						</Route>
