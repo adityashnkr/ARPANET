@@ -22,19 +22,19 @@ export const ProfileId = () => {
 	const profile = useSelector((state) => state.profile.profile);
 	return (
 		<>
-			{profile === null || loading ? (
+			{Profile === null || loading ? (
 				<Spinner />
 			) : (
-				<div className='profile-grid my-1'>
+				<div className='Profile-grid my-1'>
 					<ProfileTop />
 					<br />
 					<ProfileAbout />
 					<br />
-					<div className='profile-exp p-2'>
+					<div className='Profile-exp p-2'>
 						<h2 className='text-primary'>Experience</h2>
-						{profile.experience.length > 0 ? (
+						{Profile.experience.length > 0 ? (
 							<>
-								{profile.experience.map((experience) => (
+								{Profile.experience.map((experience) => (
 									<ProfileExperience
 										key={experience._id}
 										experience={experience}
@@ -46,11 +46,11 @@ export const ProfileId = () => {
 						)}
 					</div>
 					<br />
-					<div className='profile-edu p-2'>
+					<div className='Profile-edu p-2'>
 						<h2 className='text-primary'>Education</h2>
-						{profile.education.length > 0 ? (
+						{Profile.education.length > 0 ? (
 							<>
-								{profile.education.map((education) => (
+								{Profile.education.map((education) => (
 									<ProfileEducation key={education._id} education={education} />
 								))}
 							</>
@@ -59,8 +59,8 @@ export const ProfileId = () => {
 						)}
 					</div>
 					<br />
-					{profile.githubusername && (
-						<ProfileGithub username={profile.githubusername} />
+					{Profile.githubusername && (
+						<ProfileGithub username={Profile.githubusername} />
 					)}
 				</div>
 			)}
@@ -68,13 +68,13 @@ export const ProfileId = () => {
 				to='/profiles'
 				style={{ margin: '1rem' }}
 				className='btn btn-primary my-1'>
-				Back to profile
+				Back to Profile
 			</Link>
 			{auth.isAuthenticated &&
 				auth.loading === false &&
-				auth.user._id === profile.user._id && (
+				auth.user._id === Profile.user._id && (
 					<Link
-						to='/edit-profile'
+						to='/edit-Profile'
 						style={{ margin: '1rem' }}
 						className='btn btn-primary my-1'>
 						Edit Profile
@@ -86,7 +86,7 @@ export const ProfileId = () => {
 };
 ProfileId.propTypes = {
 	loading: PropTypes.bool,
-	profile: PropTypes.object,
+	Profile: PropTypes.object,
 	getProfileById: PropTypes.func,
 	auth: PropTypes.object,
 };
