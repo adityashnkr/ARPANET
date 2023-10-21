@@ -31,7 +31,7 @@ export const ProfileId = () => {
 					<ProfileAbout />
 					<br />
 					<div className='Profile-exp p-2'>
-						<h2 className='text-primary'>Experiencz</h2>
+						<h2 className='text-primary'>Experience</h2>
 						{Profile.experience.length > 0 ? (
 							<>
 								{Profile.experience.map((experience) => (
